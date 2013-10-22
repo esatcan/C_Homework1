@@ -1,0 +1,32 @@
+#include <stdio.h>    /*kütüphane ve kullanılacak fonksiyonların kutuphane dosyaları belirler. */
+#include <conio.h>     
+int main ()
+{
+	int i,sayi;                           /*integer tipi iki değer tanımlar*/
+    printf("Lutfen dort basamakli bir sayi giriniz : "); 
+	scanf("%d",&sayi);                   /* kullanıcıdan sayi girilmesi istenir ve scanf ile bu değer sayı değişkenine atanır*/
+	if(sayi<10000 && sayi>999)             /*sayı dort basamaklı istendiği için sayıyı bu değerde if ile sınırlar */
+	{
+	printf("girdiginiz sayi : %d\n Bu sayida  :\n",sayi);  /*girilen dort basamaklı sayiyi ekrana yazar*/
+    i= sayi / 1000;                          //girilen sayiyi bine boler ve integer olarak böldüğü için sadece  tam kısmını i ye atar//
+    printf("%d tane binlik sayi \n",i);    //tam kısmını yani "i" yi ve ardındından - binlik sayi- ekrana yazar//
+     
+	sayi= sayi-i*1000;      //sayida kaç binlik varsa onu çıkarır ve yeni değeri tekrar "sayi" değişkenine atar.
+    i= sayi / 100; //sayinin kalan 3 basamaklı kısmını tekrar yüze böler.
+    printf("%d tane yuzluk sayi \n",i);// yine integer olarak böldüğü için sadece  tam kısmını i ye atar ve tam kısmını yani "i" yi ve ardındından - binlik sayi- ekrana yazar//
+
+	sayi = sayi-i*100; 
+    i= sayi / 10;        //bu 3 satirda da aynı işlemi bu sefer onluk kısmı için yapar.
+    printf("%d tane onluk sayi \n",i);
+
+	sayi = sayi-i*10;
+    printf("%d tane birlik sayi vardir\n",sayi); // yine aynı şekilde birlik kısmı için işlem yapar kalan kısımı bu sefer direk birlik olduğu için ekrana yazar.
+	}
+	else
+	{
+		printf(" Uzgunum girdiginiz sayi 4 basamakli degildir...\n");//eger dort basamaklı bir sayi dışında sayi girilirse ekrana uyarı yazısı niteliğinde bu yazıyı goruntuler.
+	}
+	return 0;
+	getch();
+}
+
