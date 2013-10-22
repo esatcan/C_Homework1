@@ -1,0 +1,72 @@
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+	//programda kullandığım varibles ların türünü belirledim
+	int sifre,menu;
+	int bakiye=5000,miktar,hesap;
+	char kullanici[12];
+	char ad[20];
+	//ekrana çıktı olarak gelecek menünün 
+	printf("======CANBANK'A HOSGELDINIZ====\n");
+	printf("Lutfen kullanici adinizi giriniz:\n");
+	scanf("%s",&kullanici);
+	printf("sifrenizi giriniz :\n");
+	scanf("%s",&sifre);
+	printf("  MENU SEC\n");
+	printf("1-bakiye miktari\n");
+	printf("2-para yatirma\n");
+	printf("3-para gonderme\n");
+	printf("4-para cekme\n");
+	printf("5-cikis yap\n");
+	scanf("%d",&menu);
+	//girilen terciği if else yapısıyla gerçekleştirir
+	if(menu==1){
+		printf("bakiyeniz: %d",bakiye); //hesaptaki bakiyeyi gösterir
+	}
+	else if(menu==2){
+		printf("yatirmak istediğiniz miktari girin:\n");
+		scanf("%d",&miktar);//kullanıcıdan yatırmak istediği miktarı alır
+		bakiye=bakiye+miktar;//eklenen parayı bakiyeye ekler
+		printf("yeni bakiyeniz: %d",bakiye);//hesaptaki bakiyeyi gösterir
+	}
+	else if(menu==3)
+	{
+		printf("gondermek istediginiz kisinin adini ve soyadini giriniz:\n ");
+		scanf("%s",&ad); //kullanıcıda kişi adı alır
+        printf("gondereceginiz kisinin hesap numarasini giriniz:\n");
+		scanf("%d",&hesap);//kullanıcıdan kişinin hesap nosunu alır
+		printf("gondermek istediginiz miktari girin:\n");
+		scanf("%d",&miktar); 
+		
+		if(miktar<=bakiye) //gönderilecek para miktarının bakiye ile sınırlandırılmasını gösterir
+		{
+		bakiye=bakiye-miktar;
+		printf("paraniz gonderilmistir...\n");
+		printf("yeni bakiyeniz:   %d\n",bakiye);
+	    }
+		else
+		{
+			printf("bakiyeniz yetersizdir...\n");
+		}
+	}
+	else if(menu==4){
+		printf("cekmek istediginiz miktari girin\n");
+		scanf("%d",&miktar);
+		bakiye=bakiye-miktar;
+		printf("isleminiz tamamlanmitir:");
+		printf("kalan bakiyeniz: %d\n",bakiye);
+	}
+	else  if(menu==5)
+		printf("isleminiz sonlandirilmistir\ntesekkur ederiz");
+	else
+	{
+		printf("sectiginiz tus islemi gecersizdir...\n\n");
+	}
+	
+	
+	getch();
+	
+}
+
+
